@@ -116,11 +116,15 @@ move_todo() {
     if ! [ $2 -eq $3 ]; then
       move_line="$(echo "$(cat "$TODO" | sed -n "${2}p")")"
       if [ $2 -gt $3 ]; then
-        echo "$(cat "$TODO" | sed "${2}d")" > "$TODO"
-        echo "$(cat "$TODO" | sed "${3}i${move_line}")" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${2}d")"
+        echo "$DATA" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${3}i${move_line}")"
+        echo "$DATA" > "$TODO"
       else
-        echo "$(cat "$TODO" | sed "${3}a${move_line}")" > "$TODO"
-        echo "$(cat "$TODO" | sed "${2}d")" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${3}a${move_line}")"
+        echo "$DATA" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${2}d")"
+        echo "$DATA" > "$TODO"
       fi
     fi
   else
