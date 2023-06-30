@@ -56,7 +56,8 @@ add_todo() {
       echo "Is NaN."
       exit 1
     fi
-    echo "$(cat "$TODO" | sed "${3}i$todo_line")" > "$TODO"
+    DATA="$(cat "$TODO" | sed "${3}i$todo_line")"
+    echo "$DATA" > "$TODO"
   else
     echo "$todo_line" >> "$TODO"
   fi
