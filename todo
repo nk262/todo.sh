@@ -189,10 +189,10 @@ list_todo() {
     printf "{$todo_text"
     yes " " | head -n $(($max_len-${#todo_text})) | tr -d "\n"
     printf "}"
-    if ! [ -z "$todo_tag" ]; then
-      printf "#$todo_tag#"
-    fi
     printf "<$todo_date>"
+    if ! [ -z "$todo_tag" ]; then
+      printf "# $todo_tag"
+    fi
     echo
     
     idx=$(($idx+1))
