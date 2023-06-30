@@ -86,7 +86,8 @@ change_tag_todo() {
   
   todo_line="$todo_stat $todo_date #$todo_tag $todo_text"
   
-  echo "$(cat "$TODO" | sed "${3}c$todo_line")" > "$TODO"
+  DATA="$(cat "$TODO" | sed "${3}c$todo_line")"
+  echo "$DATA" > "$TODO"
   
 }
 
