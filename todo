@@ -142,10 +142,12 @@ status_todo() {
   if is_number "$2"; then
     case "$3" in
       [dD]* )
-        echo "$(cat "$TODO" | sed "${2}s/^t/d/")" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${2}s/^t/d/")"
+        echo "$DATA" > "$TODO"
         ;;
       [tT]* )
-        echo "$(cat "$TODO" | sed "${2}s/^d/t/")" > "$TODO"
+        DATA="$(cat "$TODO" | sed "${2}s/^d/t/")"
+        echo "$DATA" > "$TODO"
         ;;
       * )
         echo "Error!"
