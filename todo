@@ -98,7 +98,8 @@ del_todo() {
     exit 1
   fi
   if is_number "$2"; then
-    echo "$(cat "$TODO" | sed "${2}d")" > "$TODO"
+    DATA="$(cat "$TODO" | sed "${2}d")"
+    echo "$DATA" > "$TODO"
   else
     echo "Is NaN."
     exit 1
